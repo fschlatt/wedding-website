@@ -3,11 +3,10 @@ from guests.models import Party, Guest
 
 
 class Command(BaseCommand):
-
     def handle(self, *args, **kwargs):
         count = Guest.objects.count()
-        if raw_input('Really delete all {} guests?! (y/n):\n'.format(count)) == 'y':
+        if input("Really delete all {} guests?! (y/n):\n".format(count)) == "y":
             Party.objects.all().delete()
-            print 'guests deleted'
+            print("guests deleted")
         else:
-            print 'canceled'
+            print("canceled")

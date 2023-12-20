@@ -6,15 +6,17 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('guests', '0004_party_category'),
+        ("guests", "0004_party_category"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='party',
-            name='type',
-            field=models.CharField(choices=[('formal', 'formal'), ('fun', 'fun'), ('dimagi', 'dimagi')], max_length=10),
+            model_name="party",
+            name="type",
+            field=models.CharField(
+                choices=[("formal", "formal"), ("fun", "fun"), ("dimagi", "dimagi")],
+                max_length=10,
+            ),
         ),
     ]

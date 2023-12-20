@@ -121,7 +121,7 @@ I recommend forking this project and just manually modifying it by hand to repla
 Searching for the text on a page in the repository is a great way to find where something lives.
 
 Some things are already customizable thanks to the use of variables. 
-Copy `bigday/localsettings.py.template` to `bigday/localsettings.py` and edit the values.
+Copy `hochzeit/localsettings.py.template` to `hochzeit/localsettings.py` and edit the values.
 You definitely need to change the `SECRET_KEY` to a new secure value.
 
 `localsettings.py` is excluded from Git, so you won't accidentally submit your personal data to a public repository.
@@ -129,8 +129,8 @@ You definitely need to change the `SECRET_KEY` to a new secure value.
 ### Sending email
 
 This application uses Django's email framework for sending mail. 
-In order to hook it into a real server, you need to switch the variable `MAIL_BACKEND` of the `bigday/settings.py` from `console` to `smtp`.
-You have to enter your email configuration in the `bigday/localsettings.py` (see `Customization`).
+In order to hook it into a real server, you need to switch the variable `MAIL_BACKEND` of the `hochzeit/settings.py` from `console` to `smtp`.
+You have to enter your email configuration in the `hochzeit/localsettings.py` (see `Customization`).
 
 This [thread on stack overflow](https://stackoverflow.com/questions/6367014/how-to-send-email-via-django) has a working example for a Gmail configuration.
 
@@ -149,7 +149,7 @@ python manage.py send_invitations -h
 ### Email addresses
 
 To customize the email addresses, see the `DEFAULT_WEDDING_FROM_EMAIL` and
-`DEFAULT_WEDDING_REPLY_EMAIL` variables in `bigday/localsettings.py` (See `Customization`).
+`DEFAULT_WEDDING_REPLY_EMAIL` variables in `hochzeit/localsettings.py` (See `Customization`).
 You are also able to CC someone on all your outgoing emails using `WEDDING_CC_LIST`
 
 ### Import guests

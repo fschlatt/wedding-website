@@ -7,15 +7,16 @@ import guests.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('guests', '0010_auto_20160320_1338'),
+        ("guests", "0010_auto_20160320_1338"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='party',
-            name='invitation_id',
-            field=models.CharField(db_index=True, default=guests.models._random_uuid, max_length=32),
+            model_name="party",
+            name="invitation_id",
+            field=models.CharField(
+                db_index=True, default=guests.models._random_uuid, max_length=32
+            ),
         ),
     ]

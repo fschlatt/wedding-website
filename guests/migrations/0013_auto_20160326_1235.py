@@ -7,20 +7,33 @@ import guests.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('guests', '0012_auto_20160326_1232'),
+        ("guests", "0012_auto_20160326_1232"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='guest',
-            name='meal',
-            field=models.CharField(blank=True, choices=[('beef', 'cow'), ('chicken', 'chicken'), ('vegetarian', 'vegetable')], max_length=20, null=True),
+            model_name="guest",
+            name="meal",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("beef", "cow"),
+                    ("chicken", "chicken"),
+                    ("vegetarian", "vegetable"),
+                ],
+                max_length=20,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='party',
-            name='invitation_id',
-            field=models.CharField(db_index=True, default=guests.models._random_uuid, max_length=32, unique=True),
+            model_name="party",
+            name="invitation_id",
+            field=models.CharField(
+                db_index=True,
+                default=guests.models._random_uuid,
+                max_length=32,
+                unique=True,
+            ),
         ),
     ]

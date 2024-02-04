@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Modified from https://github.com/IronSummitMedia/startbootstrap-creative -->
-    <title>{{ couple_name }}'s big day</title>
+    <title>Hochzeit {{ couple_name }}</title>
 
     <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
 
@@ -32,20 +32,28 @@
 
 <body id="page-top">
     {% block page_content %}{% endblock %}
-    {% include "partials/footer.html" %}
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    {#
-    <script src="{% static 'creative/js/jquery.js' %}"></script>#}
+    <script src="{% static 'creative/js/jquery.js' %}"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'bootstrap-3.3.6-dist/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'hochzeit/js/footer.js' %}"></script>
+    <script src="{% static 'wedding/js/footer.js' %}"></script>
     <script>
         $(document).ready(function () {
             setFooterStyle();
             setFooterStyle();  // hack, for some reason this needs to be called twice on load
             window.onresize = setFooterStyle;
+        });
+        document.getElementById('is_attending').addEventListener('change', function () {
+            var entryField = document.getElementById('entry-field');
+            if (this.checked) {
+                entryField.style.opacity = '1';
+                entryField.style.maxHeight = '100vh';
+            } else {
+                entryField.style.opacity = '0';
+                entryField.style.maxHeight = '0';
+            }
         });
     </script>
     {% block page_js %}

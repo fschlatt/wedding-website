@@ -2,7 +2,8 @@
 {% load static %}
 {% block page_head %}
 <!-- Custom CSS -->
-<link href="{% static 'hochzeit/css/creative.css' %}" rel="stylesheet">
+<link href="{% static 'wedding/css/creative.css' %}" rel="stylesheet">
+<link href="{% static 'wedding/css/rsvp.css' %}" rel="stylesheet">
 {% endblock %}
 {% block page_content %}
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -16,7 +17,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">{{ couple_name }}'s Big Day</a>
+            <a class="navbar-brand page-scroll" href="#page-top">Hochzeit {{ couple_name }}</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -26,12 +27,6 @@
                 </li>
                 <li>
                     <a class="page-scroll" href="#event">Event</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#niagara">Niagara-on-the-Lake</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#other-stuff">Everything Else</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#contact">Contact</a>
@@ -85,67 +80,8 @@
         </div>
     </div>
 </section>
-<section class="no-padding" id="navigation">
-    <div class="container-fluid">
-        <div class="row no-gutter">
-            <div class="col-lg-4 col-sm-6">
-                <a href="#event" class="portfolio-box page-scroll">
-                    <img src="{% static 'hochzeit/images/ravine-nav.jpg' %}" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-name">
-                                The Event
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#niagara" class="portfolio-box page-scroll">
-                    <img src="{% static 'hochzeit/images/prince-of-wales-hotel-nav.jpg' %}" class="img-responsive"
-                        alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-name">
-                                Niagara-on-the-Lake
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="#story" class="portfolio-box page-scroll">
-                    <img src="{% static 'hochzeit/images/twelve-apostles-nav.jpg' %}" class="img-responsive" alt="">
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-name">
-                                Our Story
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
 {% include 'partials/event.html' %}
-<section id="niagara">
-    {% include 'partials/niagara.html' %}
-</section>
-{% comment %}
-{% include 'partials/wedding-party.html' %}
-{% endcomment %}
-<section id="other-stuff" class="bg-primary">
-    {% include 'partials/misc.html' %}
-</section>
-<section id="gifts">
-    {% include 'partials/gifts.html' %}
-</section>
-<section id="story" class="bg-dark">
-    {% include 'partials/story.html' %}
-</section>
-{% include 'partials/proposal.html' %}
-{% include 'partials/save-the-dates.html' %}
+{% include 'partials/rsvp.html' %}
 <section id="contact" class="bg-dark">
     <div class="container">
         <div class="row">

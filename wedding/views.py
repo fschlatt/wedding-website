@@ -1,32 +1,38 @@
+import json
+
 from django.conf import settings
-from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
 from django.shortcuts import render
 
 from .forms import GuestsForm
+from .models import Guests
 
 
 def home(request):
+    rsvp_flag = False
     if request.method == "POST":
-        # TODO find out how to connect form to fields in html
         form = GuestsForm(request.POST)
-        print(form)
         if form.is_valid():
-            return HttpResponseRedirect("/rsvp/")
-    else:
-        form = GuestsForm()
+            guest = Guests.objects.create(**form.cleaned_data)
+            guest.save()
+            send_mail(
+                "Neue Anmeldung Hochzeit",
+                json.dumps(form.cleaned_data, indent=4),
+                settings.CONTACT_EMAIL_USER,
+                [settings.CONTACT_EMAIL_USER],
+                fail_silently=False,
+                auth_user=settings.CONTACT_EMAIL_USER,
+                auth_password=settings.CONTACT_EMAIL_PASSWORD,
+            )
+            rsvp_flag = True
+    form = GuestsForm()
     return render(
         request,
         "home.html",
         context={
-            "support_email": settings.DEFAULT_WEDDING_REPLY_EMAIL,
-            "website_url": settings.WEDDING_WEBSITE_URL,
-            "couple_name": settings.BRIDE_AND_GROOM,
-            "wedding_location": settings.WEDDING_LOCATION,
-            "wedding_date": settings.WEDDING_DATE,
             "form": form,
+            "rsvp_flag": rsvp_flag,
+            "contact_email": settings.CONTACT_EMAIL_USER,
+            "support_email": settings.CONTACT_EMAIL_USER,
         },
     )
-
-
-def rsvp(request):
-    return render(request, "base.html")

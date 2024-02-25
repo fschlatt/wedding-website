@@ -134,13 +134,6 @@ STATICFILES_DIRS = (os.path.join("wedding", "static"),)
 
 # Some default values. Will be overwritten by a localsetting.py (rename 'localsettings.py.template' to 'localsettings.py')
 # This is used in a few places where the names of the couple are used
-BRIDE_AND_GROOM = "Bride and Groom"
-# the date of your wedding
-WEDDING_DATE = "January 1st, 1969"
-# the location of your wedding
-WEDDING_LOCATION = "North Pole, USA"
-# This is used in links in save the date / invitations
-WEDDING_WEBSITE_URL = "https://thehappycouple.com"
 # base address for all emails
 DEFAULT_WEDDING_EMAIL = "happilyeverafter@example.com"
 WEDDING_CC_LIST = []
@@ -155,10 +148,9 @@ except ImportError:
     pass
 
 # the address your emails (save the dates/invites/etc.) will come from
-DEFAULT_WEDDING_FROM_EMAIL = (
-    BRIDE_AND_GROOM + " <" + DEFAULT_WEDDING_EMAIL + ">"
-)  # change to 'address@domain.tld'
 # when sending test emails it will use this address
-DEFAULT_WEDDING_TEST_EMAIL = DEFAULT_WEDDING_FROM_EMAIL
-# the default reply-to of your emails, change, if you want to have your replies somewhere else
-DEFAULT_WEDDING_REPLY_EMAIL = DEFAULT_WEDDING_EMAIL
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

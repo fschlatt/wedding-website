@@ -1,0 +1,52 @@
+<section id="rückmeldung" class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <h2 class="section-heading text-center">Rückmeldung</h2>
+            <hr class="primary">
+            <div class="text-center">
+                <p>
+                    Wir würden uns sehr freuen, wenn ihr bei unserer Hochzeit dabei sein könnt. Bitte gebt uns bis zum
+                    15. April eine Rückmeldung.
+                </p>
+                <form method="post">
+                    {% csrf_token %}
+                    <!-- {{ form }} -->
+                    <p>Ich / wir heiße / n <input type="text" class="answer" id="names" name="names" required /> und
+                        sind ...
+                    </p>
+                    <label class="switch">
+                        <input type="checkbox" id="is_attending" name="is_attending">
+                        <div class="slider round"></div>
+                    </label>
+                    <div id="entry-field">
+                        <!-- <div >Ich/wir komme/n bereits zum Standesamt mit <input type="text"
+                                maxlength="1" class="answer" id="number_of_guests" /> Personen.</div> -->
+                        <p>Ich / wir komme / n zur Feier mit <input type="number" style="width: 40px" min="0" max="9"
+                                class="answer" name="number_of_guests" id="number_of_guests" /> Personen.
+                        </p>
+                        <p>Folgendes wäre mir / uns beim Essen wichtig (vegetarisch, vegan,
+                            etc.):
+                            <input type="text" class="answer" name="meal" id="meal" />.
+                        </p>
+                        <p>Bei diesen Liedern seht ihr mich / uns auf jeden Fall auf der
+                            Tanzfläche:
+                        </p>
+                        <p>
+                            1. <input type="text" class="answer" name="song_1" id="song_1" />
+                        </p>
+                        <p>
+                            2. <input type="text" class="answer" name="song_2" id="song_2" />
+                        </p>
+                        <p>
+                            3. <input type="text" class="answer" name="song_3" id="song_3" />
+                        </p>
+                    </div>
+                    <input type="submit" class="btn" value="Abschicken">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% if rsvp_flag %}
+<script>alert("Viel Dank für die Rückmeldung!")</script>
+{% endif %}

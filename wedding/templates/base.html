@@ -38,21 +38,19 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static 'bootstrap-3.3.6-dist/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'wedding/js/footer.js' %}"></script>
     <script>
-        $(document).ready(function () {
-            setFooterStyle();
-            setFooterStyle();  // hack, for some reason this needs to be called twice on load
-            window.onresize = setFooterStyle;
-        });
         document.getElementById('is_attending').addEventListener('change', function () {
             var entryField = document.getElementById('entry-field');
+            var number_of_guests = document.getElementById('number_of_guests');
             if (this.checked) {
                 entryField.style.opacity = '1';
                 entryField.style.maxHeight = '100vh';
+                number_of_guests.setAttribute('required', '');
+                number_of_guests.focus();
             } else {
                 entryField.style.opacity = '0';
                 entryField.style.maxHeight = '0';
+                number_of_guests.removeAttribute('required');
             }
         });
     </script>

@@ -18,11 +18,11 @@ def home(request):
             send_mail(
                 "Neue Anmeldung Hochzeit",
                 json.dumps(form.cleaned_data, indent=4),
-                settings.CONTACT_EMAIL_USER,
-                [settings.CONTACT_EMAIL_USER],
+                settings.EMAIL_USER,
+                [settings.EMAIL_USER],
                 fail_silently=False,
-                auth_user=settings.CONTACT_EMAIL_USER,
-                auth_password=settings.CONTACT_EMAIL_PASSWORD,
+                auth_user=settings.EMAIL_USER,
+                auth_password=settings.EMAIL_PASSWORD,
             )
             rsvp_flag = True
     form = GuestsForm()

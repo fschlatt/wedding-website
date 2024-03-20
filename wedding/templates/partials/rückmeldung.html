@@ -6,11 +6,10 @@
             <div class="text-center">
                 <p>
                     Wir würden uns sehr freuen, wenn ihr bei unserer Hochzeit dabei sein könnt. Bitte gebt uns bis zum
-                    15. April eine Rückmeldung.
+                    mhmhm. Bescheid ob und ggf. mit wem ihr kommt.
                 </p>
                 <form method="post">
                     {% csrf_token %}
-                    <!-- {{ form }} -->
                     <p>Ich / wir heiße / n <input type="text" class="answer" id="names" name="names" required /> und
                         sind ...
                     </p>
@@ -19,11 +18,21 @@
                         <div class="slider round"></div>
                     </label>
                     <div id="entry-field">
-                        <!-- <div >Ich/wir komme/n bereits zum Standesamt mit <input type="text"
-                                maxlength="1" class="answer" id="number_of_guests" /> Personen.</div> -->
-                        <p>Ich / wir komme / n zur Feier mit <input type="number" style="width: 40px" min="0" max="9"
-                                class="answer" name="number_of_guests" id="number_of_guests" /> Personen.
-                        </p>
+                        <br>
+                        <div style="font-size: 18px; margin-bottom: 20px;">
+                            Ich / wir komme / n
+                            <label>
+                                <input type="checkbox" class="btn-check" id="attending_standesamt"
+                                    name="attending_standesamt" autocomplete="off">
+                                <div class="btn btn-primary">zum Standesamt</div>
+                            </label>
+                            und / oder
+                            <label>
+                                <input type="checkbox" class="btn-check" id="attending_party" name="attending_party"
+                                    autocomplete="off">
+                                <div class="btn btn-primary">zur Feier</div>
+                            </label>.
+                        </div>
                         <p>Folgendes wäre mir / uns beim Essen wichtig (vegetarisch, vegan,
                             etc.):
                             <input type="text" class="answer" name="meal" id="meal" />.

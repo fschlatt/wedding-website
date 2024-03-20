@@ -33,6 +33,5 @@ def home(request):
             "form": form,
             "rsvp_flag": rsvp_flag,
             "contact_email": settings.CONTACT_EMAIL_USER,
-            "support_email": settings.CONTACT_EMAIL_USER,
         },
     )

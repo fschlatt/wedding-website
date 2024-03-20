@@ -4,7 +4,8 @@ from django.db import models
 class Guests(models.Model):
     names = models.TextField()
     is_attending = models.BooleanField(default=None, null=False)
-    number_of_guests = models.IntegerField(default=0, null=True, blank=True)
+    attending_standesamt = models.BooleanField(default=None, null=False)
+    attending_party = models.BooleanField(default=None, null=False)
     meal = models.TextField(blank=True)
     song_1 = models.TextField(blank=True)
     song_2 = models.TextField(blank=True)

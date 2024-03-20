@@ -39,17 +39,12 @@ input:checked+.slider {
     background-color: #5da85f;
 }
 
-input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
 input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(125px);
 }
 
-/*------ ADDED CSS ---------*/
 .slider:after {
     content: 'nicht dabei';
     color: white;
@@ -80,4 +75,23 @@ input:checked+.slider:after {
     border-bottom: 1px solid #ffffff;
     width: 200px;
     text-align: center;
+}
+
+
+.btn-check {
+    display: none;
+}
+
+.btn-primary {
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+input:checked+.btn-primary {
+    background-color: #5da85f;
+}
+
+input:not(:checked)+.btn-primary {
+    background-color: #c25252;
 }

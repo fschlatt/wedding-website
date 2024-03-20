@@ -10,6 +10,7 @@ from .models import Guests
 
 def home(request):
     rsvp_flag = False
+    form = GuestsForm()
     if request.method == "POST":
         form = GuestsForm(request.POST)
         if form.is_valid():
@@ -25,7 +26,6 @@ def home(request):
                 auth_password=settings.EMAIL_PASSWORD,
             )
             rsvp_flag = True
-    form = GuestsForm()
     return render(
         request,
         "home.html",

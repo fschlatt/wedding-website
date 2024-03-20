@@ -1,3 +1,11 @@
+.switch-container {
+    font-size: 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .switch {
     position: relative;
     display: inline-block;
@@ -75,23 +83,4 @@ input:checked+.slider:after {
     border-bottom: 1px solid #ffffff;
     width: 200px;
     text-align: center;
-}
-
-
-.btn-check {
-    display: none;
-}
-
-.btn-primary {
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-input:checked+.btn-primary {
-    background-color: #5da85f;
-}
-
-input:not(:checked)+.btn-primary {
-    background-color: #c25252;
 }

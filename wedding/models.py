@@ -5,7 +5,6 @@ class Guests(models.Model):
     names = models.TextField()
     is_attending = models.BooleanField(default=None, null=False)
     attending_standesamt = models.BooleanField(default=None, null=False)
-    attending_party = models.BooleanField(default=None, null=False)
     meal = models.TextField(blank=True)
     song_1 = models.TextField(blank=True)
     song_2 = models.TextField(blank=True)
